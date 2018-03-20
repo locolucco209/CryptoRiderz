@@ -11,7 +11,8 @@ body {
   font-size: 25px;
 }
 
-.twitter-footer {
+
+.gif-footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -22,6 +23,7 @@ body {
   background-color: #a1a1a1;
   text-align: center;
 }
+
 .twitterpic{
   width: 100px;
   border: 1px solid gray;
@@ -59,4 +61,16 @@ body {
 }
 
 
+
+
+/*.footer {
+  position: absolute;
+  /* negative value of footer height */
+
+/*clear: both;
+  background-color: #a1a1a1;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+}*/
 
