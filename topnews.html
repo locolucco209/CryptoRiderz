@@ -49,11 +49,10 @@
           </button>
       </div>
     </nav>
-<Main>
-  <p>Hello</p>
-</Main>
+    <div id="article-here">
+    </div>
   
-    <footer class="footer">
+    <footer class="footer navbar-fixed-bottom">
       <div class="container">
         <span class="text-muted">Copywright &copy; 2018 West Coast Rider</span>
       </div>
@@ -83,49 +82,45 @@ $.ajax({
 
   //
   console.log(response)
-
+    //var articleDiv = $("<div class='article'>");
 for (i =0; i< 10; i++){
-  // Creating a div to hold the article
-   var articleDiv = $("<div class='article'>");
+  
+//  // Creating and storing a div tag
+  var articleDiv = $("<div>");
 
- // Storing the rating data
-  // var rating = response.Rated;s
+// // Creating a paragraph tag with the result item's title
+ var p = $("<H1>").text("Title: " + response[i].title);
 
-  // // Creating an element to have the rating displayed
-  // var pOne = $("<p>").text("Rating: " + rating);
+// // Creating a paragraph tag with the result item's body
+var p2 = $("<p>").text("Title: " + response[i].body);
 
-  // // Displaying the rating
-  // movieDiv.append(pOne);
 
-  // // Storing the release year
-  // var released = response.Released;
 
-  // // Creating an element to hold the release year
-  // var pTwo = $("<p>").text("Released: " + released);
+// // // Creating and storing an image tag
+  var articleLink= $("<a>");
+  var articleImage = $("<img>");
+// Setting the src attribute of the image to a property pulled off the result item
+  articleImage.attr("src", response[i].imageurl);
+ // Setting the src attribute of the image to a property pulled off the result item
+ articleLink.attr("href", response[i].guid);
+ //console.log(particleImage)
+ // Appending the url
+//articleDiv.append(response[i].imageurl);
 
-  // // Displaying the release year
-  // movieDiv.append(pTwo);
+// // Appending the paragraph and image tag to the articlelDiv
+articleLink.append(articleImage)
+articleDiv.append(p);
+articleDiv.append(p2);
+articleDiv.append(articleLink);
 
-  // // Storing the plot
-  // var plot = response.Plot;
+ 
 
-  // Creating an element to hold the title
-  var Title = $("<p>").text("Article: " + response[i].title);
+// Prependng the articleDiv to the HTML page in the "#article-here" div
+//$("#article-here").prepend(p);
+$("#article-here").prepend(articleDiv);
 
-  // Appending the title
-  articleDiv.append(Title);
-  articleDiv.append("Helloeee");
-  // Retrieving the URL for the image
-  var imgURL = response[i].imageurl;
-
-   // Creating an element to hold the image
-   var image = $("<img>").attr("src", imgURL);
-//console.log(response[i].imageurl)
-   // Appending the image
-   articleDiv.append(response[i].imageurl);
-
-  // // Putting the entire movie above the previous movies
-  // $("#movies-view").prepend(movieDiv);
+console.log(p)
+  
 }
  
 });
