@@ -2,85 +2,195 @@
 <!doctype html>
 <html lang="en">
 
-  <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/reset.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/styles.css">
-  </head>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
 
-  <body>
-    <!-- Navbar content -->
-    <nav class="pos-f-t">
-      <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <!-- <h4 class="text-white">West Coast Riderz</h4> -->
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Graphs<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="exchangeRate.html">Exchange Rate</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="education.html">Crypto Currency 101</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="twitter.html">People to Follow</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="topnews.html">Top News Stories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gifs.html">Funny Stuff</a>
-            </li>
-          </ul>
+<body>
+  <!-- Navbar content -->
+  <nav class="pos-f-t">
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-dark p-4">
+        <!-- <h4 class="text-white">West Coast Riderz</h4> -->
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Graphs
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="exchangeRate.html">Exchange Rate</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="education.html">Crypto Currency 101</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="twitter.html">People to Follow</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="topnews.html">Top News Stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gifs.html">Funny Stuff</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark">
+      <h1 id="appHeader">West Coast Riderz</h1>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+        aria-expanded="flase" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="row">
+
+    <!-- Sign-Up Panel-->
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">My data</h3>
+        </div>
+        <div class="panel-body">
+
+          <!-- Sign-up Form (note the various input "types")-->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>USD</th>
+                <th>EUR</th>
+              </tr>
+            </thead>
+            <tbody id="mytable">
+
+
+
+            </tbody>
+          </table>
+          </form>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark">
-        <h1 id="appHeader">West Coast Riderz</h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="flase" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-          </button>
-      </div>
+
+    </div>
+
+
+
+
+
     </nav>
 
-    <section class="questionaire">
-      <h2>Crypto Currency questionaire</h2>
-      <button onclick="myFunction()">Try it</button>
-      <p id="demo"></p>
-    </section>
+   
+
 
     <footer class="footer">
       <div class="container">
         <span class="text-muted">Copywright &copy; 2018 West Coast Rider</span>
       </div>
+
+
+
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+    <script>
+      var request;
+      var crrrentvalue;
+      var mycurr="";
+      getmydata() ;
+      timer();
+function timer() {
+ 
+request = setInterval(getmydata, 5000);
+
+
+}
+
+
+      var myarray = ["BTC", "ETH", "LTC", "DASH", "XMR", "BNB"]
+
+//getmydata();
+
+function urlcreat()
+{
+  for(var m=0;m<myarray.length;m++)
+  {
+    mycurr=mycurr+[myarray[m]]
+  }
+}
+
+      function getmydata() {
+
+ 
+        //alert(mycurr);
+
+        var queryURL = "https://min-api.cryptocompare.com/data/pricemulti?extraParams=myaps&fsyms=BTC,ETH,LTC,DASH,XMR,BNB&tsyms=USD,EUR";
+
+        $.ajax({
+          url: queryURL,
+
+          method: "GET"
+        })
+
+          .then(function (response) {
+           // console.log(response);
+           // console.log(response[mysymbol][priceto]);
+           console.log(response["BTC"]["USD"]);
+           
+           $( "#mytable" ).empty();
+          
+            for (var x = 0; x < myarray.length; x++) 
+            {
+              if(crrrentvalue>(response[myarray[x]]["USD"]))
+              {}
+              crrrentvalue=response[myarray[x]]["USD"];
+
+              $("#mytable").append('<tr><td>' + myarray[x] + '</td> <td>' + "$ "+response[myarray[x]]["USD"] + '</td><td>' + response[myarray[x]]["EUR"]+ '</td><td>' )
+                 
+         
+
+
+
+            }
+           // alert(mycurr)
+            
+
+          });
+
+
+      }
+
+
+
+
+
+
+    </script>
+</body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
-    <script>
-      function myFunction() {
-        var txt;
-        var question1 = prompt("What is your favorite cryptocurrency?");
-        if (question1 == null || question1 == "") {
-          let question2 = prompt("Why is that your favorite coin?")
-        } else {
-          txt = "Hello " + person + "! How are you today?";
-        }
-        document.getElementById("demo").innerHTML = txt;
-      }
-    </script>
   </body>
 
 </html>
