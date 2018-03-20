@@ -12,6 +12,50 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+      @font-face {
+        font-family: "rapScript.otf";
+        src: url("assets/fonts/Harabara.eot");
+        src: url("assets/fonts/Harabara.otf") format("opentype"),
+      }
+
+      h1 {
+        color: gold;
+        font-family: rapScript;
+        padding: 25px;
+        margin-bottom: 15px;
+        font-size: 45px;
+        font-weight: bold;
+        text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -5px 5px 0 #000, 2px 2px 0 #000;
+      }
+
+      p {
+        color: gold;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 2px 2px 0 #000;
+        font-size: 25px;
+      }
+
+      .gifButtons {
+        background-color: black;
+        border: gold;
+        color: gold;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 20px;
+        margin: 4px 2px;
+        cursor: pointer;
+        font-family: rapScript;
+        text-shadow: 10px;
+        box-shadow: -1px 1px 5px 1px rgb(245, 250, 4);
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+      }
+
+      }
+    </style>
+
   </head>
 
   <body>
@@ -49,7 +93,23 @@
           </button>
       </div>
     </nav>
-    <footer class="footer">
+
+    <section class="container cryptoBackground" style="text-align:center">
+      <header class="row PageHeader">
+        <h1 style="text-align:center">Bitcoin and CryptoCurrency Gifs</h1>
+        <br>
+        <p style="text-align:center">Click the button to show Crypto Currency Memes!</p>
+      </header>
+      <nav class="row GipItemSelection">
+        <div id="buttonHolder"></div>
+        </div>
+      </nav>
+      <section class="row GifContent" id="gifDump">
+      </section>
+    </section>
+
+
+    <footer class="gif-footer">
       <div class="container">
         <span class="text-muted">Copywright &copy; 2018 West Coast Rider</span>
       </div>
@@ -57,9 +117,71 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <script>
+      var originals = ["Crypto Currency Memes"]
+
+      // rewritten as arrow function
+      const ogButtons = () => {
+        $("#buttonHolder").empty()
+        for (let i = 0; i < originals.length; i++) {
+          $("#buttonHolder").append(`<button class = "btn btn-info btn-md mt-2 gifButtons">${originals[i]}</button> \n`)
+        }
+      }
+
+      // takes user input from the gifHere text form and adds it to the array of buttons, then calls the button making function
+      $("#addGif").on("click", function(event) {
+        event.preventDefault()
+        var addGif = $("#gifHere").val()
+        originals.push(addGif)
+        ogButtons()
+        $("#gifHere").val("")
+      })
+
+      // when any of the query gif buttons are clicked, generate 25 gifs related to that query
+      $("#buttonHolder").on("click", ".gifButtons", function(event) {
+        event.preventDefault()
+        $("#gifDump").empty()
+        var queryGif = $(this).text()
+        var queryUrl = `https://api.giphy.com/v1/gifs/search?api_key=yaBJXogTjZZno5FJEuDCqRzS8xNIPGcX&q=cryptocurrency bitcoin ethereum hodl&limit=25&offset=0&rating=R&lang=en`
+        $.ajax({
+          url: queryUrl,
+          method: "GET"
+        }).then(function(result) {
+          console.log(result)
+          for (let i = 0; i < result.data.length; i++) {
+            $("#gifDump").append(
+              `<figure display = "inline" width = "350px" ><img src = "${result.data[i].images.original_still.url}"
+                      data-still = "${result.data[i].images.original_still.url}"
+                      data-animate = "${result.data[i].images.original.url}"
+                      data-state = "still" height = "350px" width = "350px" class = "gif"> <figcaption width = "350px" > Rating : ${result.data[i].rating}</figcaption></figure>`
+            )
+          }
+
+        })
+      })
+
+      // when any of the gifs are clicked on, swap its state between still/animated
+      $("#gifDump").on("click", ".gif", function() {
+        const state = $(this).attr("data-state")
+        if (state === "still") {
+          $(this).attr("src", $(this).attr("data-animate"));
+          $(this).attr("data-state", "animate");
+        } else {
+          $(this).attr("src", $(this).attr("data-still"));
+          $(this).attr("data-state", "still");
+        }
+      })
+
+      // call the original query gif buttons
+      ogButtons()
+    </script>
+
+
   </body>
 
 </html>
