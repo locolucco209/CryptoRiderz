@@ -24,7 +24,7 @@
             <li class="nav-item">
               <a class="nav-link" href="index.html">Exchange Rate
               <span class="sr-only">(current)</span>
-              </a>
+            </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="list.html">Crypto Currency List</a>
@@ -130,7 +130,7 @@
       // Capture Button Click
       $("#add-user").on("click", function(event) {
         // Don't refresh the pquestionTitle!
-        event.preventDefault();
+        //  event.preventDefault();
 
         personName = $("#personName-input").val().trim();
         email = $("#email-input").val().trim();
@@ -144,6 +144,15 @@
           questionTitle: questionTitle,
           commentText: commentText
         });
+
+        alert("thank you ( " + personName + " )")
+        $("#personName-input").val("")
+        $("#email-input").val("")
+        $("#questionTitle-input").val("")
+        $("#commentText-input").val("")
+
+
+
       });
 
       database.ref().on("child_added", function(snapshot) {

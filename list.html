@@ -63,8 +63,10 @@
           <!-- Sign-up Form (note the various input "types")-->
           <table class="table">
             <thead id="tablehead">
+              <tr>
+              </tr>
             </thead>
-            <tbody id="mytable">
+            <tbody id="listtable">
             </tbody>
           </table>
           </form>
@@ -82,66 +84,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-
-    <script>
-      var myVar;
-
-      var allarray = new Array();
-      //
-      getmydata2();
+    <script src="assets\javascript\listjs.js"></script>
 
 
-
-
-
-
-
-      function getmydata2() {
-
-
-        //alert(mycurr);
-        var corsProxy = "https://cors-anywhere.herokuapp.com/";
-        var apiUrl = "https://www.cryptocompare.com/api/data/coinlist/";
-        var url = corsProxy + apiUrl;
-
-        //var queryURL = "https://www.cryptocompare.com/api/data/coinlist/";
-        //  var queryURL = urlcreat;
-        $.ajax({
-            url: url,
-
-            type: "GET"
-          })
-
-          .then(function(response) {
-
-            allarray = (Object.getOwnPropertyNames((response.Data)));
-            allarray.sort();
-            //  console.log(response.Data[allarray[200]]["Name"]);
-            myVar = setInterval(retrivemydata, 5000);
-
-            function retrivemydata() {
-              $("#loading").empty();
-              $("#tablehead").append('<tr> <th>' + "#" + '</th> <th>' + "Symbol" + '</th> <th>' + "Full Name" + '</th><th>' + "Logo" + '</th></tr>')
-
-              for (var t = 0; t < allarray.length; t++) {
-
-                var imagesrc = "https://www.cryptocompare.com" + response.Data[allarray[t]]["ImageUrl"]
-
-                $("#mytable").append('<tr> <td>' + (t + 1) + '</td> <td>' + response.Data[allarray[t]]["Name"] + '</td> <td>' + '<img src="' + imagesrc + '" style="width:60px">' + '</td><td>' + response.Data[allarray[t]]["FullName"] +
-                  '</td></tr>')
-
-
-              }
-              clearTimeout(myVar);
-
-
-            }
-          });
-
-
-
-      };
-    </script>
   </body>
 
 </html>
