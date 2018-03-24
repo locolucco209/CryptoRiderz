@@ -5,13 +5,13 @@ $(window).on("load", function () {
   var myVar;
   var allarray = new Array();
 
-  
+
 
   getmydata2();
 
   function getmydata2() {
 
-    console.log("545444444444444444444")
+    console.log("545444444444444444444");
 
    // var corsProxy = "https://cors-anywhere.herokuapp.com/";
     var apiUrl = "https://min-api.cryptocompare.com/data/all/coinlist";
@@ -42,7 +42,7 @@ $(window).on("load", function () {
 
             $("#listtable").append('<tr> <td>' + (t + 1) + '</td> <td>' + response.Data[allarray[t]]["Name"] + '</td> <td>' + '<img src="' + imagesrc + '" class="myimages" style="width:60px">' + '</td><td>' + response.Data[allarray[t]]["FullName"] + '</td></tr>')
 
-            $("#listtable").append('<tr> <td>' + (t + 1) + '</td> <td>' + response.Data[allarray[t]]["Name"] + '</td> <td>' + '<img src="' + imagesrc + '" style="width:60px">' + '</td><td>' + response.Data[allarray[t]]["FullName"] + '</td></tr>')
+            //$("#listtable").append('<tr> <td>' + (t + 1) + '</td> <td>' + response.Data[allarray[t]]["Name"] + '</td> <td>' + '<img src="' + imagesrc + '" style="width:60px">' + '</td><td>' + response.Data[allarray[t]]["FullName"] + '</td></tr>')
 
 
           }
@@ -55,7 +55,3 @@ $(window).on("load", function () {
   };
 
 })
-
-
-
-
