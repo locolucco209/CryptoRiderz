@@ -1,14 +1,53 @@
+@font-face {
+  font-family: "GODOFWAR 2.TTF";
+  src: url("assets/fonts/GODOFWAR 2.TTF");
+  src: url("assets/fonts/GODOFWAR 2.TTF");
+}
+
+@font-face {
+  font-family: "rapScript.otf";
+  src: url("rapScript.otf");
+  src: url("rapScript.otf");
+}
+
 body {
-  background-color: rgb(205, 205, 205);
+  background-color: #deeffb;
+}
+
+.nbar1 {
+  background-color: #1200ff;
+}
+
+.testColor {
+  background-color: green;
 }
 
 #appHeader {
-  color: grey;
-  font-family: cursive;
+  color: white;
+  font-family: GODOFWAR;
+  font-size: 25px;
+  padding-top: 3px;
+  margin-bottom: inherit;
+}
+
+.p4 {
+  padding: none;
+  padding-left: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 25px;
 }
 
 .nav-item {
   font-size: 25px;
+}
+
+.jumbotron {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 5px;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
 .gif-footer {
@@ -60,13 +99,92 @@ body {
   font-size: 20px;
 }
 
-/*.footer {
-  position: absolute;
-  /* negative value of footer height */
+.wrapper {
+  min-height: 100%;
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
+}
 
-/*clear: both;
-  background-color: #a1a1a1;
+.rimrub {
+  background-color: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 1em;
+  width: 95%;
+}
+
+.rimrub2 {
+  background-color: white;
+  padding: 5px;
+  margin: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  border-radius: 1em;
+  width: 95%;
+}
+
+.ribrub3 {
+  background-color: white;
+  border: 10px solid #deeffb;
+  border-radius: 1em;
+}
+
+.table {
+  color: green;
+  font-size: 12px;
   text-align: center;
+
   width: 100%;
   height: 60px;
 }*/
+
+@media (min-width: 544px) {  
+  h1 {font-size:1.5rem;} /*1rem = 16px*/
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  h1 {font-size:2rem;} /*1rem = 16px*/
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  h1 {font-size:2.5rem;} /*1rem = 16px*/
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+  h1 {font-size:3rem;} /*1rem = 16px*/    
+}
+
+#mytable {
+  padding-right: 8px;
+}
+
+#newtolist {
+  color: black;
+  background-color: #e0dede;
+  margin: 3px;
+}
+
+#addbutton {
+  background-color: #1200ff;
+  color: white;
+  margin-bottom: 3px;
+}
+
+#add-user {
+  background-color: #1200ff;
+  color: white;
+  margin-bottom: 45px;
+}
+
+.freshText {
+  font-family: GODOFWAR;
+}
+.myimages:hover {
+  -ms-transform: scale(2); /* IE 9 */
+  -webkit-transform: scale(2); /* Safari 3-8 */
+  transform: scale(2); 
+}
