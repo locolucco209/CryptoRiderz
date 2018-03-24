@@ -114,6 +114,14 @@ body {
   width: 95%;
 }
 
+.rimrub {
+  background-color: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 1em;
+  width: 95%;
+}
+
 .rimrub2 {
   background-color: white;
   padding: 5px;
@@ -183,3 +191,10 @@ body {
 .freshText {
   font-family: GODOFWAR;
 }
+
+.myimages:hover {
+  -ms-transform: scale(2); /* IE 9 */
+  -webkit-transform: scale(2); /* Safari 3-8 */
+  transform: scale(2); 
+}
+
