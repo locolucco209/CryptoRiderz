@@ -2,8 +2,9 @@
 <!doctype html>
 <html lang="en">
 
+
   <head>
-    <title>Title</title>
+    <title>Top News Stories</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,13 +19,13 @@
     <!-- Navbar content -->
     <nav class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
+        <div class="nbar1 p4">
           <!-- <h4 class="text-white">West Coast Riderz</h4> -->
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Exchange Rate
-              <span class="sr-only">(current)</span>
-            </a>
+            <span class="sr-only">(current)</span>
+          </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="list.html">Crypto Currency List</a>
@@ -36,23 +37,33 @@
               <a class="nav-link" href="twitter.html">People to Follow</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gifs.html">Funny Stuff</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="contactUs.html">Contact Us</a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark">
-        <h1 id="appHeader">Krypto Fire</h1>
+      <div class="nbar1 navbar navbar-dark">
+        <h1 id="appHeader">KryptoFire</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="flase" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
       </div>
     </nav>
+    <h2 class="text-center freshTitle">Top News Stories</h2>
+
     <div id="article-here">
     </div>
+
+    </div>
+    <!-- <footer class="footer">
+      <span>Copywright &copy; 2018</span>
+    </footer> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <footer class="footer navbar-fixed-bottom">
       <div class="container">
@@ -65,29 +76,10 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <script type="text/javascript">
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBGbVZP7Tw8fVlrJ--JHlvmxFbSPRzEhJo",
-        authDomain: "kryptofire-198601.firebaseapp.com",
-        databaseURL: "https://kryptofire-198601.firebaseio.com",
-        projectId: "kryptofire-198601",
-        storageBucket: "kryptofire-198601.appspot.com",
-        messagingSenderId: "280838369224"
-      };
-      firebase.initializeApp(config);
-
-
-      // Create a variable to reference the database.
-      var database = firebase.database();
-      // Initial Values
-      var Article = 0;
-      var Views = 0;
-
       // displayLatestNews function re-renders the HTML to display the appropriate content
       // function displayLatestNews() {
 
@@ -100,86 +92,101 @@
         method: "GET"
       }).then(function(response) {
 
-        //var articleDiv = $("<div class='article'>");
+        //
+        console.log(response)
+
+        // var container = $("<div>")
+        // container.attr("class", "container")
+        // $("#article-here").append(container);
+
+
+        var carddeckDiv = $("<div>")
+        carddeckDiv.attr("class", "card-deck")
+        $("#article-here").append(carddeckDiv);
+
         for (i = 0; i < 10; i++) {
 
 
           // Creating and storing a div tag
-          var newspaperDiv = $("<div id='article'>");
+          var newspaperDiv = $("<div>");
+          newspaperDiv.attr("class", "card-group mx-4");
 
-          // Creating and storing a a tag
-          var articleDiv = $("<a>");
+          var Cardmb4Div = $("<div>");
+          Cardmb4Div.attr("class", "card mb-4")
+          Cardmb4Div.attr("style", "width: 18rem")
 
-          // // Creating a paragraph tag with the result item's source
-          var p = $("<p id='title'>").text("Title: " + response[i].title);
-          // Creating a paragraph tag with the result item's source
-          var p2 = $("<p>").text(response[i].source);
-          // Creating a paragraph tag with the result item's Published date
-          var date = moment.unix(response[i].published_on).format("MM/DD/YY hh:mm")
-          var p3 = $("<p>").text(date);
-          var p4 = $("<p id='Views'>").text(Article);
+          var viewoverlay = $("<div>");
+          viewoverlay.attr("class", "view overlay")
 
-          // Creating and storing an image tag
-          var articleLink = $("<a>");
-          //var articleLink2= $("<a>");
+
+          var a3 = $("<a>")
+          a3.attr("href", response[i].guid)
+
           var articleImage = $("<img>");
-          // Setting the src attribute of the image to a property pulled off the result item
-          articleImage.attr("src", response[i].imageurl);
-          // Setting the src attribute of the image to a property pulled off the result item
-          articleLink.attr("href", response[i].guid);
-          articleDiv.attr("href", response[i].guid);
+          articleImage.attr("class", "img-fluid")
+          articleImage.attr("alt", "Card image cap")
+          articleImage.attr("src", response[i].imageurl)
 
-          // TITLE + Link
-          articleDiv.append(p);
-          newspaperDiv.append(articleDiv)
+          var a = $("<a>")
+          a.attr("href", "#!")
 
-          // IMAGE + Link
-          articleDiv.append(articleImage)
-          newspaperDiv.append(articleLink)
+          var rgbawhite = $("<div>");
+          rgbawhite.attr("class", "mask rgba-white-slight")
 
-          // Source
-          newspaperDiv.append(p2)
-          // Published on
-          newspaperDiv.append(p3)
-          // Article Views
-          newspaperDiv.append(p4)
+          var BodyDiv = $("<Div>")
+          BodyDiv.attr("class", "card-body)")
 
-          // Prependng the articleDiv to the HTML page in the "#article-here" div
-          $("#article-here").append(newspaperDiv);
+
+          var a2 = $("<a>")
+          a2.attr("href", response[i].guid)
+
+
+
+          var CardTitleDiv = $("<h4>")
+          CardTitleDiv.attr("class", "card-title)")
+          CardTitleDiv.text(response[i].title)
+
+          var p = $("<p>")
+          p.attr("class", "card-text")
+          p.text(response[i].body.substring(0, 150) + "...")
+
+
+          var h1 = $("<h5>")
+          h1.attr("class", "card-text")
+          h1.text(response[i].source)
+
+
+          var date = moment.unix(response[i].published_on).format('MM/DD/YY h:mm A')
+          //var date2=moment(response[i].published_on).diff(moment(), 'minutes')
+
+          console.log(moment(response[i].published_on).diff(moment(), "days"))
+          var h2 = $("<p>")
+          h2.attr("class", "card-text")
+          h2.text(date)
+
+          newspaperDiv.append(Cardmb4Div)
+          Cardmb4Div.append(viewoverlay)
+
+          viewoverlay.append(a3)
+          a3.append(articleImage)
+
+          viewoverlay.append(a)
+          a.append(rgbawhite)
+          Cardmb4Div.append(BodyDiv)
+
+          BodyDiv.append(a2)
+          a2.append(CardTitleDiv)
+          BodyDiv.append(p)
+          BodyDiv.append(h1)
+          BodyDiv.append(h2)
+
+          carddeckDiv.append(newspaperDiv);
 
         }
 
       });
-      // Adding click event listen listener to all p
-      $("#article-here").on("click", function() {
-        event.preventDefault();
-        alert("touched")
-        Article++
-        // Code in the logic for storing and retrieving the most recent user.
-        database.ref().push({
-          Article: Article,
-        });
-        console.log(Article);
-        updateViews(Article)
-      });
+
       //}
-
-      function updateViews(a) {
-        //$("#table1").append('<tr><td>' + a + '</td> <td>' + b + '</td><td>' + c + '</td><td>' + d + '</td><td>' + e + '</td></tr>')
-        $("#Views").text(a);
-
-        // var p4 = $("<p>").text(a);
-        // var newspaperDiv = $("<div id='article'>");
-        // // Article Views
-        // newspaperDiv.append(p4)
-        // $("#article-here").append(newspaperDiv);
-      }
-
-
-      database.ref().on("child_added", function(snapshot) {
-        var a = snapshot.val().Article
-
-      });
     </script>
 
   </body>

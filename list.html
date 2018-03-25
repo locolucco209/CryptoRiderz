@@ -3,7 +3,7 @@
 <html lang="en">
 
   <head>
-    <title>Title</title>
+    <title>Coin List</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,8 +18,8 @@
     <!-- Navbar content -->
     <nav class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
-          <!-- <h4 class="text-white">West Coast Riderz</h4> -->
+        <div class="nbar1 p4">
+          <!-- <h4 class="texts-white">West Coast Riderz</h4> -->
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Exchange Rate
@@ -36,127 +36,56 @@
               <a class="nav-link" href="twitter.html">People to Follow</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="gifs.html">Funny Stuff</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="contactUs.html">Contact Us</a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="navbar navbar-dark bg-dark">
-        <h1 id="appHeader">Krypto Fire</h1>
+      <div class="nbar1 navbar navbar-dark">
+        <h1 id="appHeader">KryptoFire</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="flase" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       </div>
     </nav>
 
-    <div class="row">
+    <h2 class="text-center freshTitle">Coin List</h2>
 
-      <!-- Sign-Up Panel-->
-      <div class="col-lg-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div id="loading" style="text-align: center;"><img src="https://orig00.deviantart.net/df77/f/2013/094/8/d/loading_logofinal_by_zegerdon-d60eb1v.gif"></div>
-          </div>
-          <div class="panel-body">
+    <!-- Sign-Up Panel-->
+    <div class="container ribrub3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div id="loading" style="text-align: center;"><img src="https://orig00.deviantart.net/df77/f/2013/094/8/d/loading_logofinal_by_zegerdon-d60eb1v.gif"></div>
+        </div>
+        <div class="panel-body">
 
-            <!-- Sign-up Form (note the various input "types")-->
-            <table class="table">
-              <thead id="tablehead">
-                <tr>
-
-
-                </tr>
-              </thead>
-              <tbody id="mytable">
-              </tbody>
-            </table>
-            </form>
-          </div>
+          <!-- Sign-up Form (note the various input "types")-->
+          <table class="table">
+            <thead id="tablehead">
+              <tr>
+              </tr>
+            </thead>
+            <tbody id="listtable">
+            </tbody>
+          </table>
+          </form>
         </div>
       </div>
+    </div>
+
+    <!-- <footer class="footer">
+    <span>Copywright &copy; 2018</span>
+    </footer> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets\javascript\listjs.js"></script>
 
 
-
-
-
-      <footer class="footer">
-        <div class="container">
-          <span class="text-muted">Copywright &copy; 2018 West Coast Rider</span>
-        </div>
-
-
-
-      </footer>
-
-      <!-- Optional JavaScript -->
-      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery.js"></script>
-
-      <script>
-        var myVar;
-
-        var allarray = new Array();
-        //
-        getmydata2();
-
-
-
-
-
-
-
-        function getmydata2() {
-
-
-          //alert(mycurr);
-          var corsProxy = "https://cors-anywhere.herokuapp.com/";
-          var apiUrl = "https://www.cryptocompare.com/api/data/coinlist/";
-          var url = corsProxy + apiUrl;
-
-          //var queryURL = "https://www.cryptocompare.com/api/data/coinlist/";
-          //  var queryURL = urlcreat;
-          $.ajax({
-              url: url,
-
-              type: "GET"
-            })
-
-            .then(function(response) {
-
-              allarray = (Object.getOwnPropertyNames((response.Data)));
-              allarray.sort();
-              //  console.log(response.Data[allarray[200]]["Name"]);
-              myVar = setInterval(retrivemydata, 5000);
-
-              function retrivemydata() {
-                $("#loading").empty();
-                $("#tablehead").append('<tr> <th>' + "#" + '</th> <th>' + "Symbol" + '</th> <th>' + "Full Name" + '</th><th>' + "Logo" + '</th></tr>')
-
-                for (var t = 0; t < allarray.length; t++) {
-
-                  var imagesrc = "https://www.cryptocompare.com" + response.Data[allarray[t]]["ImageUrl"]
-
-                  $("#mytable").append('<tr> <td>' + (t + 1) + '</td> <td>' + response.Data[allarray[t]]["Name"] + '</td> <td>' + '<img src="' + imagesrc + '" style="width:60px">' + '</td><td>' + response.Data[allarray[t]]["FullName"] +
-                    '</td></tr>')
-
-
-                }
-                clearTimeout(myVar);
-
-
-              }
-            });
-
-
-
-        };
-      </script>
   </body>
 
 </html>
