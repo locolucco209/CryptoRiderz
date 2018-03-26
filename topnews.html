@@ -72,124 +72,224 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
   <script type="text/javascript">
 
+ 
 
-    // displayLatestNews function re-renders the HTML to display the appropriate content
-    // function displayLatestNews() {
+      // displayLatestNews function re-renders the HTML to display the appropriate content
+      // function displayLatestNews() {
 
-    var movie = $(this).attr("data-name");
-    var queryURL = "https://min-api.cryptocompare.com/data/news/?lang=EN";
-
-    // Creating an AJAX call 
-    $.ajax({
-      url: queryURL,
-      method: "GET"
-    }).then(function (response) {
-
-      //
-      console.log(response)
-
-      // var container = $("<div>")
-      // container.attr("class", "container")
-      // $("#article-here").append(container);
-
-
-      var carddeckDiv = $("<div>")
-      carddeckDiv.attr("class", "card-deck")
-      $("#article-here").append(carddeckDiv);
-
-      for (i = 0; i < 10; i++) {
-
-
-        // Creating and storing a div tag
-        var newspaperDiv = $("<div>");
-        newspaperDiv.attr("class", "card-group mx-4");
-
-        var Cardmb4Div = $("<div>");
-        Cardmb4Div.attr("class", "card mb-4")
-        Cardmb4Div.attr("style", "width: 18rem")
-
-        var viewoverlay = $("<div>");
-        viewoverlay.attr("class", "view overlay")
-
-
-        var a3 = $("<a>")
-        a3.attr("href", response[i].guid)
-
-        var articleImage = $("<img>");
-        articleImage.attr("class", "img-fluid")
-        articleImage.attr("alt", "Card image cap")
-        articleImage.attr("src", response[i].imageurl)
-
-        var a = $("<a>")
-        a.attr("href", "#!")
-
-        var rgbawhite = $("<div>");
-        rgbawhite.attr("class", "mask rgba-white-slight")
-
-        var BodyDiv = $("<Div>")
-        BodyDiv.attr("class", "card-body)")
-
-
-        var a2 = $("<a>")
-        a2.attr("href", response[i].guid)
+      var movie = $(this).attr("data-name");
+      var queryURL = "https://min-api.cryptocompare.com/data/news/?lang=EN";
 
 
 
-        var CardTitleDiv = $("<h4>")
-        CardTitleDiv.attr("class", "card-title)")
-        CardTitleDiv.text(response[i].title)
 
-        var p = $("<p>")
-        p.attr("class", "card-text")
-        p.text(response[i].body.substring(0, 150)+"...")
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBGbVZP7Tw8fVlrJ--JHlvmxFbSPRzEhJo",
+        authDomain: "kryptofire-198601.firebaseapp.com",
+        databaseURL: "https://kryptofire-198601.firebaseio.com",
+        projectId: "kryptofire-198601",
+        storageBucket: "kryptofire-198601.appspot.com",
+        messagingSenderId: "280838369224"
+      };
+      firebase.initializeApp(config);
+      // Create a variable to reference the database
+      var database = firebase.database();
 
 
-        var h1 = $("<h5>")
-        h1.attr("class", "card-text")
-        h1.text(response[i].source)
-
-
-var date=moment.unix(response[i].published_on).format('MM/DD/YY h:mm A')
-//var date2=moment(response[i].published_on).diff(moment(), 'minutes')
-
-console.log(moment(response[i].published_on).diff(moment(), "days"))
-        var h2 = $("<p>")
-        h2.attr("class", "card-text")
-        h2.text(date)
-
-        newspaperDiv.append(Cardmb4Div)
-        Cardmb4Div.append(viewoverlay)
-
-        viewoverlay.append(a3)
-        a3.append(articleImage)
-
-        viewoverlay.append(a)
-        a.append(rgbawhite)
-        Cardmb4Div.append(BodyDiv)
-
-        BodyDiv.append(a2)
-        a2.append(CardTitleDiv)
-        BodyDiv.append(p)
-        BodyDiv.append(h1)
-        BodyDiv.append(h2)
-
-        carddeckDiv.append(newspaperDiv);
-
+      var LinksCount = {
+        "links": [],
+        "count": [],
+        "id": []
       }
 
-    });
 
-//}
+      // Creating an AJAX call 
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function (response) {
+
+        //
+        console.log(response)
+        
+        // database.ref().on("value", function (snapshot) {
+        //   LinksCount = snapshot.val().LinksCount;
+
+        // }, function (errorObject) {
+        //   console.log("The read failed: " + errorObject.code);
+        // });
+
+        var carddeckDiv = $("<div>")
+        carddeckDiv.attr("class", "card-deck")
+        $("#article-here").append(carddeckDiv);
+
+        for (i = 0; i < 10; i++) {
+
+
+          // Creating and storing a div tag
+          var newspaperDiv = $("<div>");
+          newspaperDiv.attr("class", "card-group");
+
+          var Cardmb4Div = $("<div>");
+          Cardmb4Div.attr("class", "card  border-secondary mx-auto my-2 p-2")
+          Cardmb4Div.attr("style", "width: 20rem")
+
+          var viewoverlay = $("<div>");
+          viewoverlay.attr("class", "view overlay")
+
+
+          var a3 = $("<a>")
+          a3.attr("href", response[i].guid)
+
+          var articleImage = $("<img>");
+          articleImage.attr("class", "img-fluid image")
+          articleImage.attr("alt", "Card image cap")
+          articleImage.attr("src", response[i].imageurl)
+
+          var a = $("<a>")
+          a.attr("href", "#!")
+
+          var rgbawhite = $("<div>");
+          rgbawhite.attr("class", "mask rgba-white-slight")
+
+          var BodyDiv = $("<Div>")
+          BodyDiv.attr("class", "card-body)")
+
+
+          var a2 = $("<a>")
+          a2.attr("href", response[i].guid)
+          a2.attr("target", "_blank")
+          a2.attr("class", "link")
+
+
+          var CardTitleDiv = $("<h4>")
+          CardTitleDiv.attr("class", "card-title")
+          CardTitleDiv.text(response[i].title)
+
+          var p = $("<p>")
+          p.attr("class", "card-text")
+          p.text(response[i].body.substring(0, 150) + "...")
+
+          var p2 = $("<p>")
+          p2.attr("class", "card-text")
+          p2.attr("id", response[i].id)
+          p2.text("Viewed: 0")
+
+          var h1 = $("<h5>")
+          h1.attr("class", "card-text")
+          h1.text(response[i].source)
 
 
 
+          // date = date article published
+          var date = moment.unix(response[i].published_on).format('MM/DD/YY h:mm A')
+          // Current Time
+          var currentTime = moment();
+          // Difference between the times
+          var diffTimeH = moment().diff(date, "hours")
+          var diffTimeM = moment().diff(date, "minutes")
+          if (diffTimeM > 59) {
+            diffTimeM = diffTimeM % 60
+          }
 
 
+          console.log(date + " " + diffTimeH + " h" + diffTimeM + " mn")
+
+          var h2 = $("<p>")
+          h2.attr("class", "card-text")
+          if (diffTimeH > 0) {
+            h2.text(diffTimeH + " hours ago")
+          }
+          else {
+            h2.text(diffTimeM + " minutes ago")
+          }
+
+
+          newspaperDiv.append(Cardmb4Div)
+          Cardmb4Div.append(viewoverlay)
+
+          viewoverlay.append(a3)
+          a3.append(articleImage)
+
+          viewoverlay.append(a)
+          a.append(rgbawhite)
+          Cardmb4Div.append(BodyDiv)
+
+          BodyDiv.append(a2)
+          a2.append(CardTitleDiv)
+          BodyDiv.append(p)
+          BodyDiv.append(h1)
+          BodyDiv.append(h2)
+          BodyDiv.append(p2)
+
+          carddeckDiv.append(newspaperDiv);
+
+        }
+
+        $(".image").click(function () {
+          alert(this);
+        });
+
+        $(".link").click(function () {
+          //event.preventDefault();
+          LinksCount = updateLinkobject(this, response)
+
+          // Code in the logic for storing and retrieving the most recent user.
+          database.ref().push({
+            LinksCount: LinksCount
+
+          });
+
+        });
+
+      });
+
+
+      database.ref().on("child_added", function (snapshot) {
+
+        //console.log(snapshot.val().LinksCount)
+        LinksCount = snapshot.val().LinksCount;
+        updateViewed(LinksCount)
+      });
+
+      function updateLinkobject(object, response) {
+        //console.log(LinksCount.links.length)
+        for (i = 0; i < LinksCount.links.length; i++) {
+          if (LinksCount.links[i] == object.href) {
+            LinksCount.count[i] = LinksCount.count[i] + 1
+
+            console.log(LinksCount)
+            return LinksCount
+          }
+        }
+        LinksCount.links[i] = object.href
+        for (j = 0; j < response.length; j++) {
+          if (response[j].guid == object.href) {
+            LinksCount.id[i] = response[j].id
+          }
+
+        }
+        LinksCount.count[i] = 1
+        //console.log(LinksCount)
+        return LinksCount
+      }
+
+      function updateViewed(object) {
+        for (i = 0; i < object.links.length; i++) {
+          //BUG HERE
+          $("#" + LinksCount.id[i]).text("Viewed: " + LinksCount.count[i]);
+        }
+        //console.log("update")
+      }
+
+   
 
 
   </script>
