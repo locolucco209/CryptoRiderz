@@ -222,15 +222,16 @@ body {
   font-family: GODOFWAR;
   border-radius: .2em;
   padding: none;
-  margin: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .myimages:hover {
-  -ms-transform: scale(2); /* IE 9 */
-  -webkit-transform: scale(2); /* Safari 3-8 */
-  transform: scale(2); 
+  -ms-transform: scale(2);
+  /* IE 9 */
+  -webkit-transform: scale(2);
+  /* Safari 3-8 */
+  transform: scale(2);
 }
-
-
