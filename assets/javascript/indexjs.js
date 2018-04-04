@@ -3,7 +3,7 @@ $(window).on("load", function () {
 
   var request;
   var mycurr = "";
-  var myarray = ["BTC", "ETH", "LTC", "DASH", "XMR", "BNB", "USD"] 
+  var myarray = ["BTC", "ETH", "LTC", "DASH", "XMR", "BNB", "USD", "XRP", "BCH", "QTUM", "ZEC", "IOT", "XLM"] 
   var myVar;
   var allarray = new Array();
   $("#newtolist").val("");
@@ -77,12 +77,12 @@ $(window).on("load", function () {
         retrivemydata();
 
         function retrivemydata() {
-         
-         
+
+
           for (var t = 0; t < allarray.length; t++) {
 
-            
-           
+
+
             $("#myoptions").append(' <option>' + response.Data[allarray[t]]["Name"] + '</option>')
           }
           clearTimeout(myVar);
@@ -101,26 +101,22 @@ $(window).on("load", function () {
       myarray.push(added);
       getmydata();
       $("#newtolist").val("");
-      
+
     }else{
       alert("Please Enter Correct Name")
       $("#newtolist").val("");
     }
-    
+
 
   });
 
   $("#myoptions").on("change", function (event) {
     var ggg = $("#myoptions").val().trim();
     $("#newtolist").val(ggg);
-    
-  
+
+
 
   });
 
 
 })
-
-
-
-
